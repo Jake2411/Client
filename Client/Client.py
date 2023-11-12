@@ -3,7 +3,7 @@ import socket
 logIn = False
 UserName = False
 Password = False
-userExists = False
+userExists = True
 
 
 host = '127.0.0.1'
@@ -43,6 +43,11 @@ while message.lower().strip() != 'quit':
                         if (str(data) == "Correct Password! Welcome to the chat app!"):
                             Password = True
                             logIn = True
+        elif message == 2:
+            data = clientSocket.recv(1024).decode()
+            print(str(data))
+            while userExists == True:
+                
 
     message = input(">> ")
     clientSocket.send(message.encode())
